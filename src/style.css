@@ -1,0 +1,106 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --clr-black: #141414;
+  --clr-white: #e3e3f0;
+  --clr-white-soft: #ababab;
+  --clr-primary: #8a221c;
+
+  /* Scaling */
+  --step--2: clamp(0.4775rem, 0.5066rem + -0.0324vi, 0.5002rem);
+  --step--1: clamp(0.7072rem, 0.6885rem + 0.0934vi, 0.7726rem);
+  --step-0: clamp(1rem, 0.9286rem + 0.3571vi, 1.25rem);
+  --step-1: clamp(1.414rem, 1.2401rem + 0.8693vi, 2.0225rem);
+  --step-2: clamp(1.9994rem, 1.6357rem + 1.8186vi, 3.2724rem);
+  --step-3: clamp(2.8271rem, 2.1221rem + 3.5252vi, 5.2948rem);
+  --step-4: clamp(3.9976rem, 2.6921rem + 6.5276vi, 8.5669rem);
+  --step-5: clamp(5.6526rem, 3.3072rem + 11.7267vi, 13.8613rem);
+  --halfstep: 1.272; /* scalar to nudge by half a step, equal to sqrt(1.618) */
+
+  /* Spacing */
+  --gap-xs: 0.128em;
+  --gap-s: 0.272em;
+  --gap-m: 0.618em;
+  --gap-l: 1.000em;
+  --gap-xl: 1.618em;
+  --gap-xxl: 2.618em;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--clr-white);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+h1 {
+  font-size: var(--step-3);
+  font-weight: 700;
+}
+h2 {
+  font-size: var(--step-2);
+  font-weight: 400;
+}
+h3,
+.style-h3 {
+  font-size: var(--step-1);
+  font-weight: 700;
+  line-height: .85;
+}
+
+body {
+  font-size: var(--step-0);
+  margin: 0;
+  /* display: flex; */
+  /* place-items: center; */
+  display: grid;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 8px;
+  /* border: 1px solid transparent; */
+  /* padding: 0.6em 1.2em; */
+  /* font-size: 1em; */
+  font-weight: 700;
+  font-family: inherit;
+  background-color: var(--clr-black);
+  cursor: pointer;
+  /* transition: border-color 0.25s; */
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+ul {
+  list-style: none;
+}
+
+/* #app { */
+  /* width: clamp(20rem, 100vw, 90rem); */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  /* text-align: center; */
+/* } */
+
+
