@@ -21,20 +21,16 @@ const props = defineProps({
 
 <template>
   <div class="mitem">
-    <img class="mitem__img" :src="imgpath" />
+    <img class="mitem__img pattern" :src="imgpath" />
     <div class="mitem__content">
-      <div class="mitem__content-data">
-        <div class="mitem__content-data__headline">
-          <h3>{{ name }}</h3>
-          <p class="style-h3">{{ price }}</p>
-        </div>
-        <p class="mitem__content-data__desc">{{ desc }}</p>
-      </div>
+      <h3 class="mitem__content-headline">{{ name }}</h3>
+      <p class="mitem__content-price align-end style-h3">{{ price }}</p>
+      <p class="mitem__content-desc">{{ desc }}</p>
       <div class="mitem__content-ctrl">
-        <div class="mitem__content-ctrl__qty">
-          <p>QTY: <span>1</span></p>
-        </div>
-        <button class="mitem__content-ctrl__btn">Order</button>
+        <button class="btn btn__fill">-</button>
+        <span class="label__qty">1</span>
+        <button class="btn btn__fill">+</button>
+        <button class="btn btn__fill">Order</button>
       </div>
     </div>
   </div>
@@ -44,75 +40,49 @@ const props = defineProps({
 .mitem {
   --height: 9rem;
   --imgspace: calc(100vw - var(--padding-inline) - 22rem);
-  --imgcol: clamp(0rem, var(--imgspace), var(--height) + 0.618em);
+  --imgcol: clamp(0rem, var(--imgspace), var(--height) + var(--gap-m));
 
   display: grid;
   grid-template-columns: var(--imgcol) 1fr;
   max-width: var(--max-width-mitem);
 }
-
 .mitem__img {
   object-fit: contain;
   object-position: center;
-  height: var(--height);
+  height: 100%;
   width: var(--height);
 }
-
 .mitem__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  backdrop-filter: blur(0.15rem);
-  background-color: #14141480;
-  border-inline-start: 4px solid var(--clr-primary);
-  padding-inline-start: 0.618em;
-}
+  display: grid;
+  grid-template-columns: auto min-content;
+  grid-template-rows: auto 1fr auto;
+  min-height: var(--height);
 
-.mitem__content-data {
+  backdrop-filter: blur(0.15rem);
+  background-color: var(--clr-black-50);
+  border-inline-start: 4px solid var(--clr-primary);
+  padding-inline-start: var(--gap-m);
   text-shadow: 2px 2px 1px var(--clr-black);
 }
-
-.mitem__content-data__headline {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: var(--gap-s);
-}
-
-.mitem__content-data__desc {
+.mitem__content-desc {
+  grid-column: span 2;
   color: var(--clr-white-soft);
-  height: 2.25em; /* precisely enough to seamlessly allow 0 or 1 line breaks */
   line-height: 1.25;
-  margin-bottom: var(--gap-l);
+  padding-top: var(--gap-xs);
 }
-
 .mitem__content-ctrl {
+  grid-column: span 2;
   display: flex;
-}
-
-.mitem__content-ctrl__qty {
-  border-start-start-radius: 100vw;
-  border-end-start-radius: 100vw;
-  background-color: var(--clr-white);
-  color: var(--clr-primary);
+  align-items: center;
   font-size: var(--step-1);
-  padding-inline: 1em;
-  text-shadow: 1px 1px 1px var(--clr-black);
 }
-
-.mitem__ctrl-qty span {
-  font-weight: 700;
-  padding-inline-start: 0.618em;
-  text-decoration: underline;
+.mitem__content-ctrl > button:last-of-type {
+  flex-grow: 1;
+  margin-inline-start: var(--gap-s);
 }
-
-.mitem__content-ctrl__btn {
-  background-color: var(--clr-primary);
-  border: none;
-  border-radius: 0 1em 1em 0;
-  /* border-radius: inherit; */
-  flex: 1;
-  font-size: var(--step-1);
-  padding: 4px var(--step-0);
-  text-transform: uppercase;
+.label__qty {
+  margin-inline: var(--gap-s);
+  text-shadow: 2px 2px 2px var(--clr-black);
 }
 </style>
+
