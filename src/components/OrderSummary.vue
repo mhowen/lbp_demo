@@ -9,24 +9,24 @@
       <p>Subtotal: <span>$20.90</span></p>
     </div>
     <div class="summary">
-      <h3 class="summary__heading">Your Order</h3>
+      <h3 class="summary__heading align-center clr-primary">Your Order</h3>
       <div class="summary__data">
         <h4 class="summary__data-label">Qty</h4>
-        <ul class="summary__data-list">
+        <ul class="summary__data-list align-end">
           <li>1</li>
           <li>1</li>
         </ul>
       </div>
       <div class="summary__data">
-        <h4 class="summary__data-label">Item</h4>
+        <h4>Item</h4>
         <ul class="summary__data-list">
           <li>Classic</li>
           <li>Breakfast</li>
         </ul>
       </div>
       <div class="summary__data">
-        <h4 class="summary__data-label">Price</h4>
-        <ul class="summary__data-list">
+        <h4>Price</h4>
+        <ul class="summary__data-list align-end">
           <li>$9.95</li>
           <li>$10.95</li>
         </ul>
@@ -43,7 +43,7 @@
         <h4 class="summary__data-label">Total</h4>
         <p class="summary__data-price">$22.36</p>
       </div>
-      <button class="summary__btn">🛒 Checkout</button>
+      <button class="btn summary__btn">🛒 Checkout</button>
     </div>
   </div>
 </template>
@@ -79,11 +79,11 @@
       var(--max-width-mitem)
     );
     right: var(--padding-inline-app);
-    top: calc(var(--header-height) + 4rem);
-    height: min(65rem, 100vh - var(--header-height) - 8rem);
+    top: 50%;
+    transform: translateY(-50%);
+    height: min(48rem, 80vh);
 
     border-inline-start: 4px solid var(--clr-primary);
-    border-block-end: 4px solid var(--clr-primary);
     border-radius: 1em;
     text-transform: uppercase;
   }
@@ -97,14 +97,7 @@
     padding-inline: var(--padding-inline);
     position: relative;
   }
-  /* qty/price */
-  .summary > .summary__data:nth-child(2),
-  .summary > .summary__data:nth-child(4) {
-    text-align: end;
-  }
-
-  .summary__heading,
-  .summary__data-label {
+  .summary h4 {
     color: var(--clr-primary);
     font-size: var(--step-1);
   }
@@ -113,7 +106,6 @@
     font-family: Lobster, Oswald;
     font-size: var(--step-2);
     margin-block: var(--gap-l) var(--gap-m);
-    text-align: center;
     text-decoration: underline 4px;
   }
   .summary__data-list > li {
@@ -136,17 +128,12 @@
   .summary__btn {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    min-width: max(20rem, 66%);
-    transform: translateX(-50%);
+    left: -0.25rem;
+    min-width: calc(100% + 0.25rem);
 
-    background-color: var(--clr-primary);
     border: none;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    font-size: var(--step-1);
-    padding: var(--gap-s) var(--gap-l);
-    text-transform: uppercase;
+    border-radius: 0 0 1em 1em;
+    padding-block: var(--gap-s);
   }
 }
 </style>
