@@ -48,15 +48,17 @@ const navtray_open = ref(false);
   justify-content: center;
   gap: var(--step-3);
   position: fixed;
-  inset: var(--header-height) 0 0 0;
+  inset: 0;
 
-  background-color: #8a221c80;
+  backdrop-filter: blur(0.25rem);
+  background-color: #8a221ce0;
   font-family: Oswald, Inter;
   font-size: calc(var(--step-1) * var(--halfstep));
   text-decoration: underline;
   text-transform: uppercase;
   transform: translateX(100%);
   transition: transform 250ms ease-in;
+  z-index: -1;
 }
 .header__nav.opened {
   transform: translateX(0%);
