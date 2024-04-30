@@ -8,7 +8,7 @@ const navtray_open = ref(false);
   <header class="header">
     <div class="header__logo">LBP</div>
     <nav class="header__nav" :class="{ opened: navtray_open }">
-      <a>Menu</a>
+      <a class="active">Menu</a>
       <a>Locations</a>
       <a>Merchandise</a>
       <a>Order Online</a>
@@ -30,16 +30,20 @@ const navtray_open = ref(false);
   justify-content: space-between;
   height: var(--header-height);
   overflow-x: hidden;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 999;
 
   background-color: var(--clr-primary);
+  border-bottom: 0.25em solid var(--clr-primary-mute);
   padding-inline: var(--padding-inline-app);
 }
 .header__logo {
+  cursor: pointer;
   font-family: Lobster, Oswald, Inter;
   font-size: 2.75rem;
   line-height: 1.25; /* makes centering goofy Lobster font easier */
+  user-select: none;
 }
 .header__nav {
   display: flex;
@@ -54,7 +58,6 @@ const navtray_open = ref(false);
   background-color: #8a221ce0;
   font-family: Oswald, Inter;
   font-size: calc(var(--step-1) * var(--halfstep));
-  text-decoration: underline;
   text-transform: uppercase;
   transform: translateX(100%);
   transition: transform 250ms ease-in;
@@ -63,17 +66,27 @@ const navtray_open = ref(false);
 .header__nav.opened {
   transform: translateX(0%);
 }
+.header__nav > a {
+  color: var(--clr-white-soft);
+  user-select: none;
+  transition: color 150ms ease-in;
+}
+.header__nav > a:hover {
+  color: var(--clr-white);
+  cursor: pointer;
+}
+.header__nav > a.active {
+  color: var(--clr-white);
+  text-decoration: underline;
+}
 
 @media (min-width: 72.5rem) {
   .header__nav {
-    background-color: initial;
     flex-direction: row;
     position: static;
     transform: translateX(0%);
   }
-  .header__hamburger {
-    display: none;
-  }
+  .header__hamburger { display: none; }
 }
 </style>
 

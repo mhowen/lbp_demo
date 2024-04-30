@@ -37,9 +37,9 @@ const sides = [
     imgpath: "/fries.png",
   },
   {
-    name: "The Onion Rings",
+    name: "The Rings",
     price: "$8.95",
-    desc: "Georgia-Grown Vidalia Rings / House Mayo",
+    desc: "Georgia-Grown Vidalia Onion Rings / House Mayo",
     imgpath: "/rings.png",
   },
 ]
@@ -47,7 +47,7 @@ const sides = [
 
 <template>
   <div class="page">
-    <h1>Our Menu</h1>
+    <h1 class="ff-deco">Our Menu</h1>
     <h2>Burgers & Sandwiches</h2>
     <div class="menu-list">
       <MenuItem
@@ -78,9 +78,8 @@ const sides = [
 <style scoped>
 .page {
   background-color: var(--clr-black);
-  font-size: var(--step-0);
   padding-inline: var(--padding-inline-app);
-  padding-block-start: 2rem;
+  padding-block-start: var(--gap-xl);
 }
 .menu-list > * {
   margin-bottom: var(--gap-xxl);
@@ -90,6 +89,7 @@ h1,
 h2 {
   line-height: 1.00;
   margin-block-end: var(--gap-l);
+  text-shadow: 0.0625em 0.0625em 0.03125em var(--clr-primary);
 }
 h2 {
   text-decoration: underline 2px;

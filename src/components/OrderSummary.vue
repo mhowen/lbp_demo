@@ -1,47 +1,52 @@
-<script setup>
-
-</script>
-
 <template>
   <div class="wrapper">
     <div class="summary__mobile">
-      <p>🛒 (2)</p>
-      <p>Subtotal: <span>$20.90</span></p>
+      <p>🛒 (3)</p>
+      <p>Subtotal: <span>$34.80</span></p>
     </div>
     <div class="summary">
-      <h3 class="summary__heading align-center clr-primary">Your Order</h3>
-      <div class="summary__data">
-        <h4 class="summary__data-label">Qty</h4>
-        <ul class="summary__data-list align-end">
-          <li>1</li>
-          <li>1</li>
-        </ul>
+      <h3 class="heading heading-main align-center ff-deco fs-2 underline">
+        Your Order
+      </h3>
+      <div class="data">
+        <div class="pl-std">
+          <h4 class="heading heading-col style-h3">Qty</h4>
+          <ul class="datalist align-end">
+            <li>1</li>
+            <li>1</li>
+            <li>2</li>
+          </ul>
+        </div>
+        <div class="pi-std">
+          <h4 class="heading heading-col style-h3">Item</h4>
+          <ul class="datalist">
+            <li>Classic</li>
+            <li>Breakfast</li>
+            <li>Fries</li>
+          </ul>
+        </div>
+        <div class="pr-std">
+          <h4 class="heading heading-col style-h3">Price</h4>
+          <ul class="datalist align-end">
+            <li>$9.95</li>
+            <li>$10.95</li>
+            <li>$13.90</li>
+          </ul>
+        </div>
       </div>
-      <div class="summary__data">
-        <h4>Item</h4>
-        <ul class="summary__data-list">
-          <li>Classic</li>
-          <li>Breakfast</li>
-        </ul>
-      </div>
-      <div class="summary__data">
-        <h4>Price</h4>
-        <ul class="summary__data-list align-end">
-          <li>$9.95</li>
-          <li>$10.95</li>
-        </ul>
-      </div>
-      <div class="summary__data total">
-        <h4 class="summary__data-label">Subtotal</h4>
-        <p class="summary__data-price">$20.90</p>
-      </div>
-      <div class="summary__data total">
-        <h4 class="summary__data-label">Tax</h4>
-        <p class="summary__data-price">$1.46</p>
-      </div>
-      <div class="summary__data total">
-        <h4 class="summary__data-label">Total</h4>
-        <p class="summary__data-price">$22.36</p>
+      <div class="fs-1 pi-std">
+        <div class="flexrow">
+          <h4 class="heading heading-row">Subtotal</h4>
+          <p>$34.80</p>
+        </div>
+        <div class="flexrow">
+          <h4 class="heading heading-row">Tax</h4>
+          <p>$2.44</p>
+        </div>
+        <div class="flexrow">
+          <h4 class="heading heading-row">Total</h4>
+          <p class="fw-700">$37.24</p>
+        </div>
       </div>
       <button class="btn summary__btn">🛒 Checkout</button>
     </div>
@@ -56,82 +61,63 @@
   left: 0;
   bottom: 0;
 
-  background-color: var(--clr-white);
-  color: var(--clr-black);
+  background-color: var(--clr-black);
+  background-image: var(--dappled);
   font-size: var(--step-1);
 }
 .summary__mobile {
+  border-top: 0.125em solid var(--clr-primary);
   min-height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-inline: var(--padding-inline);
 }
-.summary { display: none }
+.summary {
+  display: none;
+  font-size: var(--step-0);
+}
 
 @media (min-width: 80rem) {
   .summary__mobile { display: none }
   .wrapper {
-    min-width: initial;
-    left: calc(
-      var(--padding-inline-app) +
-      var(--padding-inline)     +
-      var(--max-width-mitem)
-    );
-    right: var(--padding-inline-app);
-    top: 50%;
-    transform: translateY(-50%);
+    --block-usable: calc(100vh - var(--header-height));
+    --block-offset: calc(-50% + var(--header-height));
+    --inline-offset: calc(var(--padding-inline-app) + var(--padding-inline));
     height: min(48rem, 80vh);
+    min-width: min-content;
+    left: calc(var(--inline-offset) + var(--max-width-mitem));
+    right: var(--padding-inline-app);
+    top: calc(var(--block-usable) / 2);
+    transform: translate(0%, var(--block-offset));
 
-    border-inline-start: 4px solid var(--clr-primary);
+    border-inline-start: 0.0625em solid var(--clr-black-soft);
+    border-inline-end: 0.125em solid var(--clr-primary-mute);
     border-radius: 1em;
     text-transform: uppercase;
   }
   .summary {
-    font-size: var(--step-0);
-    display: grid;
     min-height: 100%;
-    gap: var(--gap-s) var(--gap-l);
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto 1fr auto auto auto;
-    padding-inline: var(--padding-inline);
-    position: relative;
-  }
-  .summary h4 {
-    color: var(--clr-primary);
-    font-size: var(--step-1);
-  }
-  .summary__heading {
-    grid-column: span 3;
-    font-family: Lobster, Oswald;
-    font-size: var(--step-2);
-    margin-block: var(--gap-l) var(--gap-m);
-    text-decoration: underline 4px;
-  }
-  .summary__data-list > li {
-    border-block-end: 1px solid var(--clr-white-soft);
-    margin-block-end: var(--gap-m);
-  }
-  .summary__data.total {
-    grid-column: span 3;
     display: flex;
-    align-items: center;
-    font-size: var(--step-1);
+    flex-direction: column;
   }
-  .summary__data.total > .summary__data-label {
+  .data {
     flex: 1;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
   }
-  .summary__data.total:last-of-type {
-    font-weight: 700;
-    margin-block-end: var(--gap-xxl);
+  .heading { text-shadow: 0.0625em 0.0625em 0.03125em var(--clr-primary); }
+  .heading-col { margin-bottom: var(--gap-m); }
+  .heading-row { margin-bottom: var(--gap-s); }
+  .heading-main { margin-block: var(--gap-xl) var(--gap-l); }
+  .datalist > li {
+    border-block-end: 1px solid var(--clr-white-soft);
+    margin-bottom: var(--gap-s);
   }
   .summary__btn {
-    position: absolute;
-    bottom: 0;
-    left: -0.25rem;
-    min-width: calc(100% + 0.25rem);
-
+    background-image: var(--diagonals);
     border: none;
+    border-bottom: 0.125em solid var(--clr-primary-mute);
     border-radius: 0 0 1em 1em;
     padding-block: var(--gap-s);
   }

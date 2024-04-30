@@ -1,5 +1,5 @@
-<script setup>
-const props = defineProps({
+<script setup lang="ts">
+defineProps({
   name: {
     type: String,
     required: true,
@@ -21,16 +21,18 @@ const props = defineProps({
 
 <template>
   <div class="mitem">
-    <img class="mitem__img pattern" :src="imgpath" />
+    <img class="mitem__img" :src="imgpath" />
     <div class="mitem__content">
-      <h3 class="mitem__content-headline">{{ name }}</h3>
-      <p class="mitem__content-price align-end style-h3">{{ price }}</p>
+      <div class="flexrow mb-s">
+        <h3>{{ name }}</h3>
+        <p class="style-h3">{{ price }}</p>
+      </div>
       <p class="mitem__content-desc">{{ desc }}</p>
       <div class="mitem__content-ctrl">
-        <button class="btn btn__fill">-</button>
-        <span class="label__qty">1</span>
-        <button class="btn btn__fill">+</button>
-        <button class="btn btn__fill">Order</button>
+        <button class="btn btn__fill bg-checkered">-</button>
+        <span class="fs-1">1</span>
+        <button class="btn btn__fill bg-checkered">+</button>
+        <button class="btn btn__fill ms-s">Order</button>
       </div>
     </div>
   </div>
@@ -47,42 +49,36 @@ const props = defineProps({
   max-width: var(--max-width-mitem);
 }
 .mitem__img {
+  background-image: var(--tiled);
+  border-top-left-radius: 1em;
   object-fit: contain;
   object-position: center;
   height: 100%;
   width: var(--height);
 }
 .mitem__content {
-  display: grid;
-  grid-template-columns: auto min-content;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   min-height: var(--height);
 
-  backdrop-filter: blur(0.15rem);
+  backdrop-filter: blur(0.10rem);
   background-color: var(--clr-black-50);
   border-inline-start: 4px solid var(--clr-primary);
   padding-inline-start: var(--gap-m);
   text-shadow: 2px 2px 1px var(--clr-black);
 }
 .mitem__content-desc {
-  grid-column: span 2;
+  flex-grow: 1;
   color: var(--clr-white-soft);
   line-height: 1.25;
-  padding-top: var(--gap-xs);
 }
 .mitem__content-ctrl {
-  grid-column: span 2;
   display: flex;
   align-items: center;
-  font-size: var(--step-1);
+  gap: var(--gap-m);
 }
 .mitem__content-ctrl > button:last-of-type {
   flex-grow: 1;
-  margin-inline-start: var(--gap-s);
-}
-.label__qty {
-  margin-inline: var(--gap-s);
-  text-shadow: 2px 2px 2px var(--clr-black);
 }
 </style>
 
