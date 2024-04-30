@@ -2,30 +2,37 @@
 import MenuItem from './MenuItem.vue';
 import OrderSummary from './OrderSummary.vue';
 
+import cb1 from '../assets/cb1.png';
+import cb2 from '../assets/cb2.png';
+import cs1 from '../assets/cs1.png';
+import cs2 from '../assets/cs2.png';
+import fries from '../assets/fries.png';
+import rings from '../assets/rings.png';
+
 const sandwiches = [
   {
     name: "The Classic",
     price: "$9.95",
     desc: "Brioche Bun / All-Beef Patty / American Cheese / LTO / House Mayo",
-    imgpath: "/cb1.png",
+    imgpath: cb1,
   },
   {
     name: "The Breakfast",
     price: "$10.95",
     desc: "Brioche Bun / All-Beef Patty / Fried Egg / American Cheese / LTO",
-    imgpath: "/cb2.png",
+    imgpath: cb2,
   },
   {
     name: "The Chicken",
     price: "$9.95",
     desc: "Potato Bun / Fried Chicken Breast / Coleslaw / House Mayo",
-    imgpath: "/cs2.png",
+    imgpath: cs1,
   },
   {
     name: "The Joseon",
     price: "$10.95",
     desc: "Brioche Bun / Korean Fried Chicken / Slaw / House Mayo",
-    imgpath: "/cs1.png",
+    imgpath: cs2,
   },
 ];
 
@@ -34,13 +41,13 @@ const sides = [
     name: "The Fries",
     price: "$6.95",
     desc: "Triple-Cooked Idaho Russets / Garlic / Parmesan / Sea Salt",
-    imgpath: "/fries.png",
+    imgpath: fries,
   },
   {
     name: "The Rings",
     price: "$8.95",
     desc: "Georgia-Grown Vidalia Onion Rings / House Mayo",
-    imgpath: "/rings.png",
+    imgpath: rings,
   },
 ]
 </script>
