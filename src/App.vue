@@ -8,20 +8,16 @@ import Menu   from './components/Menu.vue';
     <Header />
     <Menu />
     <footer class="footer">
-      <p>Footer content!</p>
+      <p class="align-center">
+      ©2024 M. Harrison Owen --
+      <a href="https://www.mharryowen.com">www.mharryowen.com</a>
+      </p>
     </footer>
   </div>
 </template>
 
-<style scoped>
+<style>
 #lbp {
-  --header-height: 5rem;
-  --max-width-mitem: 50rem;
-  --padding-inline: clamp(1rem, 5vw, 2rem);
-  --content-inline-max: 90rem;
-  --padding-inline-min: 2rem;
-  --inline-free: calc(100vw - var(--content-inline-max));
-  --padding-inline-app: max(var(--padding-inline), calc(0.5 * var(--inline-free)));
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -33,3 +29,4 @@ import Menu   from './components/Menu.vue';
   border-top: 1px solid var(--clr-white);
 }
 </style>
+
