@@ -49,13 +49,13 @@ const sides = [
     desc: "Georgia-Grown Vidalia Onion Rings / House Mayo",
     imgpath: rings,
   },
-]
+];
 </script>
 
 <template>
   <div class="page">
-    <h1 class="ff-deco">Our Menu</h1>
-    <h2>Burgers & Sandwiches</h2>
+    <h1 class="ff-deco mb-l">Our Menu</h1>
+    <h2 class="mb-l">Burgers & Sandwiches</h2>
     <div class="menu-list">
       <MenuItem
         v-for="i in sandwiches"
@@ -66,7 +66,7 @@ const sides = [
         :imgpath="i.imgpath"
       />
     </div>
-    <h2>Fries & Sides</h2>
+    <h2 class="mb-l">Fries & Sides</h2>
     <div class="menu-list">
       <MenuItem
         v-for="i in sides"
@@ -86,16 +86,19 @@ const sides = [
 .page {
   background-color: var(--clr-black);
   padding-inline: var(--padding-inline-app);
-  padding-block-start: var(--gap-xl);
+  padding-block: var(--gap-xl);
 }
 .menu-list > * {
-  margin-bottom: var(--gap-xxl);
+  margin-bottom: min(5vh, var(--gap-xl));
+}
+
+.mb-l {
+  margin-bottom: min(5vh, var(--gap-l));
 }
 
 h1,
 h2 {
   line-height: 1.00;
-  margin-block-end: var(--gap-l);
   text-shadow: 0.0625em 0.0625em 0.03125em var(--clr-primary);
 }
 h2 {

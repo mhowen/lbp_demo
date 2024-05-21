@@ -7,7 +7,8 @@
 
 :root {
   /* Bounds */
-  --header-height: 5rem;
+  /* --header-height: 5rem; */
+  --header-height: clamp(3rem, 10vh, 5rem);
   --max-width-mitem: 50rem;
   --padding-inline: clamp(1rem, 5vw, 2rem);
   --content-inline-max: 90rem;
@@ -85,7 +86,7 @@ body {
   font-size: var(--step-0);
   margin: 0;
   display: grid;
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 100vh;
 }
 

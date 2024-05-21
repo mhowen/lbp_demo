@@ -14,7 +14,7 @@ const navtray_open = ref(false);
       <a>Order Online</a>
     </nav>
     <svg class="header__hamburger" @click="navtray_open = !navtray_open"
-      xmlns="http://www.w3.org/2000/svg" width="3.5em" height="3.5em" viewBox="0 0 24 24">
+      xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
       <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
         <path d="M20 7H4"/>
         <path d="M20 12H4" opacity="0.5"/>
@@ -35,14 +35,15 @@ const navtray_open = ref(false);
   z-index: 999;
 
   background-color: var(--clr-primary);
-  border-bottom: 0.25em solid var(--clr-primary-mute);
+  border-bottom: 0.125em solid var(--clr-primary-mute);
+  font-size: clamp(2rem, 5vh, 2.75rem);
   padding-inline: var(--padding-inline-app);
 }
 .header__logo {
   cursor: pointer;
   font-family: Lobster, Oswald, Inter;
-  font-size: 2.75rem;
-  line-height: 1.25; /* makes centering goofy Lobster font easier */
+  font-size: 1em;
+  line-height: 1.25;
   user-select: none;
 }
 .header__nav {
@@ -57,7 +58,6 @@ const navtray_open = ref(false);
   backdrop-filter: blur(0.25rem);
   background-color: #8a221ce0;
   font-family: Oswald, Inter;
-  font-size: calc(var(--step-1) * var(--halfstep));
   text-transform: uppercase;
   transform: translateX(100%);
   transition: transform 250ms ease-in;

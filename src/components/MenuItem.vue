@@ -23,9 +23,9 @@ defineProps({
   <div class="mitem">
     <img class="mitem__img" :src="imgpath" />
     <div class="mitem__content">
-      <div class="flexrow mb-s">
+      <div class="mitem__content__title flexrow mb-s">
         <h3>{{ name }}</h3>
-        <p class="style-h3">{{ price }}</p>
+        <p>{{ price }}</p>
       </div>
       <p class="mitem__content-desc">{{ desc }}</p>
       <div class="mitem__content-ctrl">
@@ -63,9 +63,10 @@ defineProps({
 
   backdrop-filter: blur(0.10rem);
   background-color: var(--clr-black-50);
-  border-inline-start: 4px solid var(--clr-primary);
-  padding-inline-start: var(--gap-m);
   text-shadow: 2px 2px 1px var(--clr-black);
+}
+.mitem__content__title > * {
+  font-size: calc(var(--step-0) * var(--halfstep));
 }
 .mitem__content-desc {
   flex-grow: 1;
@@ -79,6 +80,16 @@ defineProps({
 }
 .mitem__content-ctrl > button:last-of-type {
   flex-grow: 1;
+}
+
+@media (min-width: 20rem) {
+  .mitem__content {
+    border-inline-start: 0.25em solid var(--clr-primary);
+    padding-inline-start: var(--gap-m);
+  }
+  .mitem__content__title > * {
+    font-size: var(--step-1);
+  }
 }
 </style>
 
