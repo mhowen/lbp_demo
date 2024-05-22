@@ -161,11 +161,3 @@ ul {
 .pl-std { padding-left: var(--padding-inline) }
 .pr-std { padding-right: var(--padding-inline) }
 
-/* #app { */
-  /* width: clamp(20rem, 100vw, 90rem); */
-  /* margin: 0 auto; */
-  /* padding: 2rem; */
-  /* text-align: center; */
-/* } */
-
-
