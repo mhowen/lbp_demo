@@ -25,6 +25,7 @@ The approach for this project can be quickly summarized as such:
 - Each step's value is computed as a function of available screen width
 - Every element gets assigned a step based on its intended presentation
 - Spacing between elements is a given proportion of their step size
+
 You can see the scaling system up close in `/src/style.css`.
 
 With good forward planning and a little patience, this all produces a page of elements whose sizes are in perfect mathematical harmony with one another and which dynamically size themselves in relation to the screen onto which they're rendered. 
